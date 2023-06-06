@@ -1,5 +1,5 @@
 // globalVariable.js
-let _currentUserWalletAddress = null;
+let _currentUserWalletAddress = "bc1p47p87wz85uqjphjf6elcrg8yhg0je3kratjhm79uyfnqa399a3usknp50z";
 
 export function setCurrentUserWalletAddress(address) {
   _currentUserWalletAddress = address;

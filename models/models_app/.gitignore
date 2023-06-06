@@ -26,3 +26,4 @@ yarn-error.log*
 firebaseConfig.js
 .env
 .vercel
+tempOpenAIKey.js

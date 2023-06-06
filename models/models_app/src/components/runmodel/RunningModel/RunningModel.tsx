@@ -14,7 +14,7 @@ import { useContext } from 'react';
 import { modelInputContext } from '../../../Contexts/modelInputContext';
 import {getCurrentUserOpenAIKey, getCurrentUserWalletAddress, hostAddress} from '../../../globalVariable';
 import ReadFromfirestore from '../../../firebaseFunctions/ReadFromFirestore.js';
-
+import tempOpenAIKey from '../../../tempOpenAIKey';
 
 
 
@@ -70,7 +70,11 @@ async function handleRunModel(url,data){
       setkey(data.open_ai_key);
       console.log('key: ', key);
       console.log('kedata.open_ai_key: ', data.open_ai_key);
-      handleRunModel(`http://${hostAddress}:4003/trymodel${data.open_ai_key.trim()}`,{
+      var mykey = data.open_ai_key.trim();
+      if(data.open_ai_key.trim() == ''){
+        mykey= tempOpenAIKey;
+      }
+      handleRunModel(`http://${hostAddress}:4003/trymodel${mykey}`,{
         "model_id": props.modelId, 
         "prompt": newPostContent
       } );
