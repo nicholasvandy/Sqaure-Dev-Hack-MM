@@ -9,6 +9,7 @@ import { enableOKXWallet } from './okxIntegration';
 import zokshUrl from '../../../../zoksh';
 import sponsorImage from './sponsor.png';
 import fullsponsorImage from './fullsponsor.png'
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   className?: string;
@@ -20,7 +21,7 @@ interface Props {
 
 export const CreateButton_statusDefaultBoug: FC<Props> = memo(function CreateButton_statusDefaultBoug(props = {}) {
   const buyButtonRef = useRef<HTMLButtonElement>(null);
-
+  const history = useHistory();
   function handleBuy() {
     if (window.okxwallet) {
       console.log('Buy button clicked');
@@ -30,10 +31,9 @@ export const CreateButton_statusDefaultBoug: FC<Props> = memo(function CreateBut
     }
   }
 
-  function handleFiatPay() {
-    console.log('Fiat Pay button clicked');
-    console.log("zokshUrl: ", zokshUrl());
-    window.location.href = zokshUrl();
+  function handleSqaurePay() {
+    console.log('Sqaure Pay button clicked');
+    history.push('/payment');
 
   }
 
@@ -76,7 +76,7 @@ export const CreateButton_statusDefaultBoug: FC<Props> = memo(function CreateBut
 
 
       <button
-        onClick={handleFiatPay}
+        onClick={handleSqaurePay}
         className={`${resets.clapyResets} ${props.classes?.root || ''} ${props.className || ''} ${classes.root} ${classes.fiatPay}`}
       >
         <CreateButton_statusDefaultSize2
@@ -97,7 +97,7 @@ export const CreateButton_statusDefaultBoug: FC<Props> = memo(function CreateBut
             ),
           }}
           text={{
-            createAModel: <div className={`${classes.createAModel} ${classes.fiatPayText}`}>buy ETH through card<br /> powered by Zoksh Pay
+            createAModel: <div className={`${classes.createAModel} ${classes.fiatPayText}`}>buy ETH through card<br /> powered by Sqaure
             </div>,
           }}
           

@@ -9,6 +9,8 @@ import useModel from './useModel.js';
 import Setup from './Setup.js';
 import MintModelPage from './MintModelPage.js';
 import MarkerplaceMainPage  from './MarketPlaceMainPage.js';  
+import SqaurePay from './SqaurePay.js';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -25,6 +27,7 @@ root.render(
         <Route path="/create-model" component={CreateModelPage}/>
         <Route path="/try-model" component={useModel}/>
         <Route path='/mint-model' component={MintModelPage}/>
+        <Route path='/payment' component={SqaurePay}/>
       </Switch>
       </BrowserRouter>
       </div>
